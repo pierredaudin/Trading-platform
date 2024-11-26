@@ -1,0 +1,47 @@
+/*
+* Banque app
+*/
+
+"Clean-up" {
+    Banque.clear()
+    Banque.jetons = 1000
+    Banque._prix = 10.0
+    assert user "Bank has been reset to 1000 tokens and price is 10.0"
+}
+
+"Inputs" "Test inputs Banque" {
+    Banque._prix = 15.5
+    assert user "Current price is set to 15.5"
+
+    Banque.jetons = 900
+    assert user "Number of tokens in the bank is set to 900"
+}
+
+"Services" "Test services Banque" {
+    // Création d'un compte
+    Banque.creation_compte("Trader1", "uuid1", "Trader 1")
+    assert user "Trader1 account created with initial balance of 1000.0 and 0 tokens"
+
+    // Récupération des informations d'un compte
+    Banque.get_info_compte("Trader1", "uuid1")
+    assert user "Trader1 has 1000.0 and 0 tokens"
+
+    // Simulation d'un achat
+    Banque.ordre("Trader1", "uuid1", 10, "acheter")
+    assert user "Trader1 bought 10 tokens at 15.5, balance is updated"
+
+
+    // Historique des ordres
+    Banque.mettre_a_jour_whiteboard()
+    assert user "Whiteboard updated with the latest orders"
+}
+
+"Whiteboard" "Test integration with Whiteboard" {
+    Banque.mettre_a_jour_whiteboard()
+    assert user "Whiteboard displays the bank’s last 5 orders"
+
+    Banque.elementCreated("Whiteboard", "uuid1", "textElement", "order1")
+    assert actionResult from Banque
+    assert user "Text element for the order has been added to Whiteboard"
+}
+

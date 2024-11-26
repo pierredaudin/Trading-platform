@@ -71,7 +71,7 @@ class Graphique:
             #plt.text(0.5, 0.25, 'Historique des ordres', color='white', fontsize=16, ha='center', va='center', transform=fig.transFigure)
 
             # Simuler quelques éléments de l'interface
-            ax.text(0.05, 0.95, 'UPSSI-Tading', color='white', fontsize=20, fontweight='bold', transform=fig.transFigure)
+            ax.text(0.05, 0.95, 'UPSSI-Trading', color='white', fontsize=20, fontweight='bold', transform=fig.transFigure)
             ax.text(0.05, 0.90, 'Actif : UPS/EUR', color='white', fontsize=14, transform=fig.transFigure)
             #ax.text(0.75, 0.90, 'Solde : 1000 USDT', color='white', fontsize=14, transform=fig.transFigure)
 

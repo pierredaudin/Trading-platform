@@ -110,12 +110,12 @@ def on_freeze_callback(is_frozen, my_data):
 def ordre_callback(sender_agent_name, sender_agent_uuid, service_name, tuple_args, token, my_data):
     try:
         # Ajouter des impressions pour afficher les valeurs des arguments du callback
-        print(f"[DEBUG] sender_agent_name: {sender_agent_name}")
-        print(f"[DEBUG] sender_agent_uuid: {sender_agent_uuid}")
-        print(f"[DEBUG] service_name: {service_name}")
-        print(f"[DEBUG] tuple_args: {tuple_args} (type: {type(tuple_args)})")
-        print(f"[DEBUG] token: {token} (type: {type(token)})")
-        print(f"[DEBUG] my_data: {my_data} (type: {type(my_data)})")
+        # print(f"[DEBUG] sender_agent_name: {sender_agent_name}")
+        # print(f"[DEBUG] sender_agent_uuid: {sender_agent_uuid}")
+        # print(f"[DEBUG] service_name: {service_name}")
+        # print(f"[DEBUG] tuple_args: {tuple_args} (type: {type(tuple_args)})")
+        # print(f"[DEBUG] token: {token} (type: {type(token)})")
+        # print(f"[DEBUG] my_data: {my_data} (type: {type(my_data)})")
 
         # Vérifier la valeur de my_data
         agent_object = my_data
@@ -135,7 +135,7 @@ def ordre_callback(sender_agent_name, sender_agent_uuid, service_name, tuple_arg
             raise TypeError(f"Erreur: quantite devrait être un entier, reçu : {type(quantite)}")
 
         # Afficher les détails de l'ordre reçu
-        print(f"Banque reçoit un ordre de {sender_agent_name} pour {type_ordre} {quantite} jetons.")
+        # print(f"Banque reçoit un ordre de {sender_agent_name} pour {type_ordre} {quantite} jetons.")
         
         # Appeler la méthode correspondante de la banque
         agent_object.ordre(sender_agent_name, sender_agent_uuid, quantite, type_ordre)

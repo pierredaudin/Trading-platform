@@ -34,11 +34,6 @@ class Banque(metaclass=Singleton):
         self.elements_list = {}
         self.ordre_tokens = []  # Liste limitée à 5 éléments max
 
-        # File d'attente pour la suppression des éléments du Whiteboard
-        self.remove_queue = queue.Queue() 
-        self.remove_thread = threading.Thread(target=self.process_remove_queue)
-        self.remove_thread.daemon = True
-        self.remove_thread.start()
         self.lock = threading.Lock()  # Verrou pour la gestion des mises à jour du Whiteboard
 
     # outputs
@@ -67,38 +62,39 @@ class Banque(metaclass=Singleton):
             print(f"Le compte du trader {sender_agent_name} n'existe pas.")
 
     def ordre(self, sender_agent_name, sender_agent_uuid, quantite, type_ordre):
-        # Vérifier si le trader a un compte, sinon en créer un
-        if sender_agent_uuid not in self.comptes:
-            self.creer_compte(sender_agent_uuid)
-            print(f"Compte créé pour le trader {sender_agent_name} ({sender_agent_uuid})")
-        
-        # Récupérer le compte du trader
-        compte = self.comptes[sender_agent_uuid]
-        
-        # Afficher les détails de l'ordre reçu
-        print(f"Banque reçoit un ordre de {sender_agent_name} pour {type_ordre} {quantite} jetons.")
-        
-        # Traiter l'ordre reçu d'un trader, achat ou vente
-        if type_ordre == "acheter":
-            self.acheter(sender_agent_name, quantite, compte)
-        elif type_ordre == "vendre":
-            self.vendre(sender_agent_name, quantite, compte)
+        with self.lock:
+            # Vérifier si le trader a un compte, sinon en créer un
+            if sender_agent_uuid not in self.comptes:
+                self.creer_compte(sender_agent_uuid)
+                print(f"Compte créé pour le trader {sender_agent_name} ({sender_agent_uuid})")
+            
+            # Récupérer le compte du trader
+            compte = self.comptes[sender_agent_uuid]
+            
+            # Afficher les détails de l'ordre reçu
+            print(f"Banque reçoit un ordre de {sender_agent_name} pour {type_ordre} {quantite} jetons.")
+            
+            # Traiter l'ordre reçu d'un trader, achat ou vente
+            if type_ordre == "acheter":
+                self.acheter(sender_agent_name, quantite, compte)
+            elif type_ordre == "vendre":
+                self.vendre(sender_agent_name, quantite, compte)
 
-        # Ajouter l'ordre à l'historique
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        self.ordre_historique.append((sender_agent_name, type_ordre, quantite, timestamp))
+            # Ajouter l'ordre à l'historique
+            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            self.ordre_historique.append((sender_agent_name, type_ordre, quantite, timestamp))
 
-        # Mettre à jour le prix et l'historique sur le Whiteboard
-        self.mettre_a_jour_prix()
-        self.prix_actuelO = self._prix
+            # Mettre à jour le prix et l'historique sur le Whiteboard
+            self.mettre_a_jour_prix()
+            self.prix_actuelO = self._prix
 
-        # Mettre a jour le whiteboard 
-        self.mettre_a_jour_whiteboard()
-
+            # Mettre a jour le whiteboard 
+            self.mettre_a_jour_whiteboard()
 
     def creer_compte(self, trader_uuid):
         # Créer un compte avec un solde initial
         self.comptes[trader_uuid] = {"argent": 1000.0, "jetons": 0}
+        print(self.comptes[trader_uuid])
 
     def acheter(self, agent_name, quantite, compte):
         if compte["argent"] >= quantite * self._prix and self.jetons >= quantite:
@@ -122,61 +118,16 @@ class Banque(metaclass=Singleton):
         # Mettre à jour le prix en fonction du nombre de jetons disponibles (avec des valeurs en float)
         self._prix = 10.0 + (1000 - self.jetons) * 0.01
 
-    """ def mettre_a_jour_whiteboard(self):
-        try:
-            # Ajouter un titre pour l'historique
-            titre = "Historique des 5 derniers ordres"
-            igs.service_call("Whiteboard", "addText", (titre, 50.0, 485.0, "#000000"), "")
-
-            # Réafficher les 5 derniers ordres de l'historique
-            derniers_ordres = self.ordre_historique[-5:]  # Ne garder que les 5 derniers
-            y_position = 550.0  # Position initiale sur l'axe Y pour l'affichage des ordres (doit être un float)
-
-            for ordre in derniers_ordres:
-                trader_name, type_ordre, quantite, timestamp = ordre
-                texte = f"{timestamp} - {trader_name} - {type_ordre} : {quantite} jetons"
-
-                # Ajouter un rectangle pour "effacer" l'ancienne ligne de texte
-                largeur_rectangle = 1000.0  # Largeur du rectangle pour couvrir tout le texte
-                hauteur_rectangle = 75.0  # Hauteur du rectangle (ajustée pour couvrir une ligne de texte)
-                x_position_rectangle = 40.0  # Position X du rectangle
-                y_position_rectangle = y_position - 20.0  # Ajuster légèrement la position pour couvrir l'ancienne ligne
-                couleur_fond = "#FFFFFF"  # Couleur de fond du Whiteboard (ajuster selon la couleur du fond)
-
-                igs.service_call("Whiteboard", "addShape", ("rectangle", x_position_rectangle, y_position_rectangle, largeur_rectangle, hauteur_rectangle, couleur_fond, couleur_fond, 0.0), "")
-
-                # Ajouter le texte par-dessus le rectangle "effaceur"
-                igs.service_call("Whiteboard", "addText", (texte, 50.0, y_position, "#000000"), "")
-
-                # Déplacer la position pour le prochain ordre affiché vers le bas
-                y_position += 70.0  # Augmenter l'espacement entre les lignes pour éviter tout chevauchement
-
-            print("[DEBUG] Historique du Whiteboard mis à jour.")
-        except Exception as e:
-            print(f"Erreur lors de la mise à jour du Whiteboard : {e}") """
-    
-    def process_remove_queue(self):
-        while True:
-            token = self.remove_queue.get()
-            if token in self.elements_list:
-                try:
-                    igs.service_call("Whiteboard", "remove", (self.elements_list[token]), "")
-                    self.elements_list.pop(token)
-                    print(f"[DEBUG] Élément {token} supprimé du Whiteboard.")
-                except Exception as e:
-                    print(f"Erreur lors de la suppression de l'élément {token} : {e}")
-            self.remove_queue.task_done()
-
     def mettre_a_jour_whiteboard(self):
         try:
-            with self.lock:
+            # with self.lock:
                 # Supprimer les anciens textes du Whiteboard
                 for token in self.ordre_tokens:
                     if token in self.elements_list:
                         try:
                             igs.service_call("Whiteboard", "remove", (self.elements_list[token]), "")
                             self.elements_list.pop(token)  # Retirer également du dictionnaire local
-                            print(f"[DEBUG] Élément {token} supprimé du Whiteboard.")
+                            # print(f"[DEBUG] Élément {token} supprimé du Whiteboard.")
                         except Exception as e:
                             print(f"Erreur lors de la suppression de l'élément {token} : {e}")
 
@@ -187,7 +138,7 @@ class Banque(metaclass=Singleton):
                 if "titrehistorique" in self.elements_list:
                     try:
                         igs.service_call("Whiteboard", "remove", (self.elements_list["titrehistorique"]), "")
-                        print(f"[DEBUG] Titre historique supprimé du Whiteboard.")
+                        # print(f"[DEBUG] Titre historique supprimé du Whiteboard.")
                     except Exception as e:
                         print(f"Erreur lors de la suppression du titre historique : {e}")
 
@@ -212,7 +163,7 @@ class Banque(metaclass=Singleton):
                     # Déplacer la position pour le prochain ordre
                     y_position += 70.0
 
-                print("[DEBUG] Historique du Whiteboard mis à jour.")
+                # print("[DEBUG] Historique du Whiteboard mis à jour.")
 
         except Exception as e:
             print(f"Erreur lors de la mise à jour du Whiteboard : {e}")

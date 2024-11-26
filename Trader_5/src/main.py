@@ -217,7 +217,7 @@ if __name__ == "__main__":
                 igs.service_call("Banque", "ordre", arguments_ordre, str(agent.nom))
                 
                 # Pause entre les ordres
-                time.sleep(2)
+                time.sleep(3.1)
             except Exception as e:
                 print(f"Erreur lors de l'envoi de l'ordre : {e}")
             time.sleep(1.25)
