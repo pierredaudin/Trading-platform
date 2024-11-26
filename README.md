@@ -3,6 +3,8 @@
 ## Description
 UPSSI-Trading est une application de trading simulée utilisant une interface graphique (Whiteboard) pour visualiser l'évolution des prix et gérer des ordres de trading en temps réel. L'application permet de créer des comptes de traders, d'effectuer des transactions d'achat et de vente, et de mettre à jour l'historique des ordres sur le Whiteboard.
 
+### Rapport sur le fonctionnement : [rapport technique](./Rapport/rapport_technique.md)
+
 ## Fonctionnalités
 - Création de comptes de trading.
 - Gestion des ordres d'achat et de vente.
