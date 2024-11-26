@@ -5,6 +5,8 @@ UPSSI-Trading est une application de trading simulée utilisant une interface gr
 
 ### Rapport sur le fonctionnement : [rapport technique](./Rapport/rapport_technique.md)
 
+### Démonstration vidéo : https://youtu.be/QI6BDmu1vII
+
 ## Fonctionnalités
 - Création de comptes de trading.
 - Gestion des ordres d'achat et de vente.
