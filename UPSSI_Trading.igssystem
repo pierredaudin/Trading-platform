@@ -1,0 +1,1201 @@
+{
+    "extensions": {
+        "eventsTimeline": {
+            "events": [
+            ],
+            "patterns": [
+            ],
+            "timelines": [
+                {
+                    "eventInstances": [
+                    ],
+                    "name": "Timeline_1",
+                    "order": 0,
+                    "patternInstances": [
+                    ]
+                }
+            ]
+        },
+        "recordAndReplay": {
+            "filters": {
+            }
+        }
+    },
+    "library": {
+        "classes": [
+            {
+                "className": "Banque",
+                "color": 0,
+                "definition": {
+                    "outputs": [
+                        {
+                            "description": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\np, li { white-space: pre-wrap; }\nhr { height: 1px; border-width: 0; }\nli.unchecked::marker { content: \"\\2610\"; }\nli.checked::marker { content: \"\\2612\"; }\n</style></head><body style=\" font-family:'Asap'; font-size:13px; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:13px; color:#2a2a2a;\">Donne le prix actuel aux traders</span></p></body></html>",
+                            "name": "prix_actuel",
+                            "type": "DOUBLE"
+                        }
+                    ],
+                    "services": [
+                        {
+                            "arguments": [
+                                {
+                                    "name": "quantite",
+                                    "type": "INTEGER"
+                                },
+                                {
+                                    "name": "type_ordre",
+                                    "type": "STRING"
+                                }
+                            ],
+                            "description": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\np, li { white-space: pre-wrap; }\nhr { height: 1px; border-width: 0; }\nli.unchecked::marker { content: \"\\2610\"; }\nli.checked::marker { content: \"\\2612\"; }\n</style></head><body style=\" font-family:'Asap'; font-size:13px; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:13px; color:#2a2a2a;\">Reçoit un ordre d'un trader et l'execute</span></p></body></html>",
+                            "name": "ordre"
+                        },
+                        {
+                            "name": "get_info_compte"
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "description": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\np, li { white-space: pre-wrap; }\nhr { height: 1px; border-width: 0; }\nli.unchecked::marker { content: \"\\2610\"; }\nli.checked::marker { content: \"\\2612\"; }\n</style></head><body style=\" font-family:'Asap'; font-size:13px; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">n<span style=\" font-size:13px; color:#2a2a2a;\">om du trader</span></p></body></html>",
+                                    "name": "nom",
+                                    "type": "STRING"
+                                }
+                            ],
+                            "name": "creation_compte"
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "elementId",
+                                    "type": "INTEGER"
+                                }
+                            ],
+                            "name": "elementCreated"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "aee6cd1f-11e5-4709-8c5b-7de8617bec79",
+                "version": ""
+            },
+            {
+                "className": "Trader",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "description": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\np, li { white-space: pre-wrap; }\nhr { height: 1px; border-width: 0; }\nli.unchecked::marker { content: \"\\2610\"; }\nli.checked::marker { content: \"\\2612\"; }\n</style></head><body style=\" font-family:'Asap'; font-size:13px; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">r<span style=\" font-size:13px; color:#2a2a2a;\">eçoit le prix actuel de l'actif que fourni la banque</span></p></body></html>",
+                            "name": "prix_actuel",
+                            "type": "INTEGER"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "3fa928ed-8603-47dc-afa5-a3cc254ffe49",
+                "version": ""
+            },
+            {
+                "className": "Whiteboard",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "title",
+                            "type": "STRING"
+                        },
+                        {
+                            "name": "backgroundColor",
+                            "type": "STRING"
+                        },
+                        {
+                            "name": "labelsVisible",
+                            "type": "BOOL"
+                        },
+                        {
+                            "name": "chatMessage",
+                            "type": "STRING"
+                        },
+                        {
+                            "name": "clear",
+                            "type": "IMPULSION"
+                        },
+                        {
+                            "name": "ui_command",
+                            "type": "STRING"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "lastChatMessage",
+                            "type": "STRING"
+                        },
+                        {
+                            "name": "lastAction",
+                            "type": "STRING"
+                        },
+                        {
+                            "name": "ui_error",
+                            "type": "STRING"
+                        }
+                    ],
+                    "services": [
+                        {
+                            "arguments": [
+                                {
+                                    "name": "message",
+                                    "type": "STRING"
+                                }
+                            ],
+                            "name": "chat"
+                        },
+                        {
+                            "name": "snapshot",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "base64Png",
+                                            "type": "DATA"
+                                        }
+                                    ],
+                                    "name": "snapshotResult"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "clear"
+                        },
+                        {
+                            "name": "showLabels"
+                        },
+                        {
+                            "name": "hideLabels"
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "type",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "name": "x",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "y",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "width",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "height",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "fill",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "name": "stroke",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "name": "strokeWidth",
+                                    "type": "DOUBLE"
+                                }
+                            ],
+                            "name": "addShape",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "elementId",
+                                            "type": "INTEGER"
+                                        }
+                                    ],
+                                    "name": "elementCreated"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "text",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "name": "x",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "y",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "color",
+                                    "type": "STRING"
+                                }
+                            ],
+                            "name": "addText",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "elementId",
+                                            "type": "INTEGER"
+                                        }
+                                    ],
+                                    "name": "elementCreated"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "base64",
+                                    "type": "DATA"
+                                },
+                                {
+                                    "name": "x",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "y",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "width",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "height",
+                                    "type": "DOUBLE"
+                                }
+                            ],
+                            "name": "addImage",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "elementId",
+                                            "type": "INTEGER"
+                                        }
+                                    ],
+                                    "name": "elementCreated"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "url",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "name": "x",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "y",
+                                    "type": "DOUBLE"
+                                }
+                            ],
+                            "name": "addImageFromUrl",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "elementId",
+                                            "type": "INTEGER"
+                                        }
+                                    ],
+                                    "name": "elementCreated"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "elementId",
+                                    "type": "INTEGER"
+                                }
+                            ],
+                            "name": "remove",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "succeeded",
+                                            "type": "BOOL"
+                                        }
+                                    ],
+                                    "name": "actionResult"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "elementId",
+                                    "type": "INTEGER"
+                                },
+                                {
+                                    "name": "dx",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "dy",
+                                    "type": "DOUBLE"
+                                }
+                            ],
+                            "name": "translate",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "succeeded",
+                                            "type": "BOOL"
+                                        }
+                                    ],
+                                    "name": "actionResult"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "elementId",
+                                    "type": "INTEGER"
+                                },
+                                {
+                                    "name": "x",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "y",
+                                    "type": "DOUBLE"
+                                }
+                            ],
+                            "name": "moveTo",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "succeeded",
+                                            "type": "BOOL"
+                                        }
+                                    ],
+                                    "name": "actionResult"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "elementId",
+                                    "type": "INTEGER"
+                                },
+                                {
+                                    "name": "property",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "STRING"
+                                }
+                            ],
+                            "name": "setStringProperty",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "succeeded",
+                                            "type": "BOOL"
+                                        }
+                                    ],
+                                    "name": "actionResult"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "name": "elementId",
+                                    "type": "INTEGER"
+                                },
+                                {
+                                    "name": "property",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "DOUBLE"
+                                }
+                            ],
+                            "name": "setDoubleProperty",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "succeeded",
+                                            "type": "BOOL"
+                                        }
+                                    ],
+                                    "name": "actionResult"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "getElementIds",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "jsonArray",
+                                            "type": "STRING"
+                                        }
+                                    ],
+                                    "name": "elementIds"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "getElements",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "jsonArray",
+                                            "type": "STRING"
+                                        }
+                                    ],
+                                    "name": "elements"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "29bca02b-3aeb-4dd3-b5a0-c333075e6965",
+                "version": ""
+            },
+            {
+                "className": "Trader_1",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "description": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\np, li { white-space: pre-wrap; }\nhr { height: 1px; border-width: 0; }\nli.unchecked::marker { content: \"\\2610\"; }\nli.checked::marker { content: \"\\2612\"; }\n</style></head><body style=\" font-family:'Asap'; font-size:13px; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">r<span style=\" font-size:13px; color:#2a2a2a;\">eçoit le prix actuel de l'actif que fourni la banque</span></p></body></html>",
+                            "name": "prix_actuel",
+                            "type": "INTEGER"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "c5077c52-98f0-421b-99c2-93fe2d8c90d9",
+                "version": ""
+            },
+            {
+                "className": "Trader_2",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "description": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\np, li { white-space: pre-wrap; }\nhr { height: 1px; border-width: 0; }\nli.unchecked::marker { content: \"\\2610\"; }\nli.checked::marker { content: \"\\2612\"; }\n</style></head><body style=\" font-family:'Asap'; font-size:13px; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">r<span style=\" font-size:13px; color:#2a2a2a;\">eçoit le prix actuel de l'actif que fourni la banque</span></p></body></html>",
+                            "name": "prix_actuel",
+                            "type": "INTEGER"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "ee2ec882-2a8a-4277-a09c-3a871f1f0bbc",
+                "version": ""
+            },
+            {
+                "className": "Trader1",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "prix_actuel",
+                            "type": "INTEGER"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "0e98068f-0d53-47ca-918d-59a4a914ef4b",
+                "version": ""
+            },
+            {
+                "className": "Trader_Manuel",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "prix_actuel",
+                            "type": "DOUBLE"
+                        }
+                    ],
+                    "services": [
+                        {
+                            "arguments": [
+                                {
+                                    "name": "solde",
+                                    "type": "DOUBLE"
+                                },
+                                {
+                                    "name": "jetons",
+                                    "type": "INTEGER"
+                                }
+                            ],
+                            "name": "reponse_info_compte"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "c2a3824e-32e8-45be-a341-9888947e2360",
+                "version": ""
+            },
+            {
+                "className": "Graphique",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "prix_actuel",
+                            "type": "DOUBLE"
+                        }
+                    ],
+                    "services": [
+                        {
+                            "arguments": [
+                                {
+                                    "name": "elementId",
+                                    "type": "INTEGER"
+                                }
+                            ],
+                            "name": "elementCreated"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "83e9e3ca-7f15-4f6e-9cf3-e21376b811e6",
+                "version": ""
+            },
+            {
+                "className": "Trader_3",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "description": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\np, li { white-space: pre-wrap; }\nhr { height: 1px; border-width: 0; }\nli.unchecked::marker { content: \"\\2610\"; }\nli.checked::marker { content: \"\\2612\"; }\n</style></head><body style=\" font-family:'Asap'; font-size:13px; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">r<span style=\" font-size:13px; color:#2a2a2a;\">eçoit le prix actuel de l'actif que fourni la banque</span></p></body></html>",
+                            "name": "prix_actuel",
+                            "type": "INTEGER"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "ebcb34e6-cb95-49d7-a7df-01ddbc6d1bc4",
+                "version": ""
+            },
+            {
+                "className": "Trader_4",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "description": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\np, li { white-space: pre-wrap; }\nhr { height: 1px; border-width: 0; }\nli.unchecked::marker { content: \"\\2610\"; }\nli.checked::marker { content: \"\\2612\"; }\n</style></head><body style=\" font-family:'Asap'; font-size:13px; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">r<span style=\" font-size:13px; color:#2a2a2a;\">eçoit le prix actuel de l'actif que fourni la banque</span></p></body></html>",
+                            "name": "prix_actuel",
+                            "type": "INTEGER"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "c8541613-9773-4836-96f1-629f5e912395",
+                "version": ""
+            },
+            {
+                "className": "Trader_5",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "description": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\np, li { white-space: pre-wrap; }\nhr { height: 1px; border-width: 0; }\nli.unchecked::marker { content: \"\\2610\"; }\nli.checked::marker { content: \"\\2612\"; }\n</style></head><body style=\" font-family:'Asap'; font-size:13px; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">r<span style=\" font-size:13px; color:#2a2a2a;\">eçoit le prix actuel de l'actif que fourni la banque</span></p></body></html>",
+                            "name": "prix_actuel",
+                            "type": "INTEGER"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "61a51b47-8abe-42f2-9ed9-cd4536711809",
+                "version": ""
+            }
+        ]
+    },
+    "systemViews": [
+        {
+            "children": [
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\Desktop\\Desktop\\Bureau\\UPSSITECH\\3A\\S1\\Interactions-Distribu�es\\Whiteboard.win64\\Whiteboard\\Whiteboard.exe",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "172.17.140.157",
+                                "isAttachedToCircle": false,
+                                "uuid": "ea79538d-a906-4b4b-9954-6345c525b15c"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\milou\\Documents\\3A\\Ingenuity\\Whiteboard.win64\\Whiteboard\\Whiteboard.exe",
+                                "hostname": "DESKTOP-6VODCC3",
+                                "ip": "192.168.154.85",
+                                "isAttachedToCircle": false,
+                                "uuid": "0b423a1e-8df5-4132-a638-b14b20ad785b"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\Desktop\\Desktop\\Bureau\\UPSSITECH\\3A\\S1\\Interactions-Distribu�es\\Ingenuity\\Whiteboard.win64\\Whiteboard\\Whiteboard.exe",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "ab8e75c2-8347-47a5-8d8b-c751a994364e"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\Desktop\\Desktop\\Bureau\\UPSSITECH\\3A\\S1\\Interactions-Distribu�es\\Ingenuity\\trading\\trading\\Whiteboard.win64\\Whiteboard\\Whiteboard.exe",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "afb98ef9-f062-4703-8cf3-8f3f3b3d6869"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\Desktop\\Desktop\\Bureau\\UPSSITECH\\3A\\S1\\Interactions-Distribu�es\\Ingenuity\\Whiteboard.win64\\Whiteboard\\Whiteboard.exe --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "5c7a3b1c-527e-45eb-b601-2e8ccd66fb4a"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\Documents\\Ingescape\\sandbox\\Whiteboard_EXE\\Whiteboard.exe --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "a2a33720-265f-4263-a844-b0084a8fbbcc"
+                            }
+                        ]
+                    },
+                    "class": "29bca02b-3aeb-4dd3-b5a0-c333075e6965",
+                    "comment": "",
+                    "height": 202,
+                    "name": "Whiteboard",
+                    "simulationTime": 5000,
+                    "uuid": "466b9e8e-547d-481c-b8a2-a905bf355058",
+                    "width": 250,
+                    "x": 450.7269892606845,
+                    "y": 964.2681468174501
+                },
+                {
+                    "data": {
+                        "entries": [
+                            "white"
+                        ],
+                        "value_type": "STRING"
+                    },
+                    "height": 79,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.writer",
+                    "uuid": "ce93e48c-7d6b-43a3-b90e-eb962c79dc59",
+                    "width": 256,
+                    "x": 154.83098851175396,
+                    "y": 1007.2516174685875
+                },
+                {
+                    "data": {
+                        "entries": [
+                        ],
+                        "value_type": "IMPULSION"
+                    },
+                    "height": 44,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.writer",
+                    "uuid": "2215bd1f-f054-4268-8f5e-5bf94c202833",
+                    "width": 256,
+                    "x": 172.37500100102602,
+                    "y": 1174.2663874687146
+                },
+                {
+                    "data": {
+                        "entries": [
+                            "UPSSITrading"
+                        ],
+                        "value_type": "STRING"
+                    },
+                    "height": 79,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.writer",
+                    "uuid": "c1d7d541-7524-428f-b09d-ab7b02f85da2",
+                    "width": 256,
+                    "x": 157.35844832290104,
+                    "y": 899.9762952382466
+                },
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe main.py --port 5670 --device Wi-Fi --verbose",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "6725eda6-6597-4d76-a7b0-8735b333ad5c"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:/Users/Pierre/Documents/Ingescape/sandbox\\Banque/src/main.py --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "81b907de-c24e-4aa1-b923-23d552c5a94a"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:\\Users\\Pierre\\Documents\\Ingescape\\sandbox\\Banque/src/main.py --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "bc1ab5bb-2692-463f-8d83-4960ef0882a9"
+                            }
+                        ]
+                    },
+                    "class": "aee6cd1f-11e5-4709-8c5b-7de8617bec79",
+                    "comment": "",
+                    "height": 100,
+                    "name": "Banque",
+                    "simulationTime": 5000,
+                    "uuid": "02ea1272-82e2-42e2-a6df-6a4b339c229b",
+                    "width": 250,
+                    "x": -536.959058769175,
+                    "y": 948.9785113438074
+                },
+                {
+                    "data": {
+                        "data_decoder": "BINARY",
+                        "msg_type": "",
+                        "proto_file_path": "",
+                        "string_decoder": "PLAIN_TEXT"
+                    },
+                    "height": 56,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.observer",
+                    "uuid": "2dff85f4-8967-415a-bc05-d4e6745eea22",
+                    "width": 180,
+                    "x": -127.68812461627817,
+                    "y": 542.2353961557774
+                },
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe main.py --port 5670 --device Wi-Fi --verbose",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "5e7652b9-7e35-4a62-814b-f1de82660437"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:/Users/Pierre/Documents/Ingescape/sandbox\\Trader_Manuel/src/main.py --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "d663e35c-af07-4dcf-a923-50b7fac7f480"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:\\Users\\Pierre\\Documents\\Ingescape\\sandbox\\Trader_Manuel/src/main.py --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "74f83e05-af03-4541-8827-839fc0389584"
+                            }
+                        ]
+                    },
+                    "class": "c2a3824e-32e8-45be-a341-9888947e2360",
+                    "comment": "",
+                    "height": 100,
+                    "name": "Trader_Manuel",
+                    "simulationTime": 5000,
+                    "uuid": "f30891d8-64cc-41e6-ae3d-0dee8d208017",
+                    "width": 250,
+                    "x": -131.95289723802955,
+                    "y": 610.6811137369559
+                },
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe main.py --port 5670 --device Wi-Fi --verbose",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "3020c2e6-92fd-496f-a65b-a4fbd3d36a0e"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:/Users/Pierre/Documents/Ingescape/sandbox\\Trader/src/main.py --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "c1c442b9-005c-4a7a-b5ae-5afb62e83bc9"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:\\Users\\Pierre\\Documents\\Ingescape\\sandbox\\Trader/src/main.py --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "14864f21-89ce-4887-abf8-2e397a587caa"
+                            }
+                        ]
+                    },
+                    "class": "3fa928ed-8603-47dc-afa5-a3cc254ffe49",
+                    "comment": "",
+                    "height": 100,
+                    "name": "Trader",
+                    "simulationTime": 5000,
+                    "uuid": "33223858-5c4d-432d-a894-31cabb94e8d1",
+                    "width": 250,
+                    "x": -132.8900257719506,
+                    "y": 728.5002085050203
+                },
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe main.py --port 5670 --device Wi-Fi --verbose",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "c0042879-c0a7-4681-85d5-1f3a2da34f18"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:/Users/Pierre/Documents/Ingescape/sandbox\\Trader_1/src/main.py --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "497c1ce8-1e9d-48f1-ac83-88218db8d5fb"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:\\Users\\Pierre\\Documents\\Ingescape\\sandbox\\Trader_1/src/main.py --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "7509259e-4774-4f04-9f16-618b9d4d86a8"
+                            }
+                        ]
+                    },
+                    "class": "0e98068f-0d53-47ca-918d-59a4a914ef4b",
+                    "comment": "",
+                    "height": 100,
+                    "name": "Trader1",
+                    "simulationTime": 5000,
+                    "uuid": "16f7bff8-ec20-442e-abdb-097df4026b4d",
+                    "width": 250,
+                    "x": -133.57654689439642,
+                    "y": 847.0248226009951
+                },
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe main.py --port 5670 --device Wi-Fi --verbose",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "ebe7b5e7-9e64-4a04-bd8c-f4987912e957"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:/Users/Pierre/Documents/Ingescape/sandbox\\Trader_2/src/main.py --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "d3c0e211-e140-4ab0-a276-da9c50613c06"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:\\Users\\Pierre\\Documents\\Ingescape\\sandbox\\Trader_2/src/main.py --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "e65e87fc-ae8b-4069-8bc9-87f8932cabc9"
+                            }
+                        ]
+                    },
+                    "class": "ee2ec882-2a8a-4277-a09c-3a871f1f0bbc",
+                    "comment": "",
+                    "height": 100,
+                    "name": "Trader_2",
+                    "simulationTime": 5000,
+                    "uuid": "e32453af-840b-4235-8e94-bf0caa58c3ca",
+                    "width": 250,
+                    "x": -136.78390078018538,
+                    "y": 962.5024341740518
+                },
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:\\Users\\Pierre\\Documents\\Ingescape\\sandbox\\Trader_3/src/main.py --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "37b56d49-9ca1-495e-a023-102b478dc6f1"
+                            }
+                        ]
+                    },
+                    "class": "ebcb34e6-cb95-49d7-a7df-01ddbc6d1bc4",
+                    "comment": "",
+                    "height": 100,
+                    "name": "Trader_3",
+                    "simulationTime": 5000,
+                    "uuid": "9d3365e7-f0d9-41a7-b5e5-d05b497462d2",
+                    "width": 250,
+                    "x": -136.6162608724319,
+                    "y": 1075.9654720116555
+                },
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:\\Users\\Pierre\\Documents\\Ingescape\\sandbox\\Trader_4/src/main.py --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "42709eb8-d26d-4e32-bd66-2d297ca81d3a"
+                            }
+                        ]
+                    },
+                    "class": "c8541613-9773-4836-96f1-629f5e912395",
+                    "comment": "",
+                    "height": 100,
+                    "name": "Trader_4",
+                    "simulationTime": 5000,
+                    "uuid": "50d2eecb-72c3-45f5-87b6-3c032738b110",
+                    "width": 250,
+                    "x": -137.25985599225646,
+                    "y": 1189.4376436269447
+                },
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:\\Users\\Pierre\\Documents\\Ingescape\\sandbox\\Trader_5/src/main.py --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "58d28b25-38fa-497f-adae-79c0dddc6abf"
+                            }
+                        ]
+                    },
+                    "class": "61a51b47-8abe-42f2-9ed9-cd4536711809",
+                    "comment": "",
+                    "height": 100,
+                    "name": "Trader_5",
+                    "simulationTime": 5000,
+                    "uuid": "cc6df4a2-1138-4d55-bd1d-6f536d861a3e",
+                    "width": 250,
+                    "x": -134.76532782127993,
+                    "y": 1302.8924484455492
+                },
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe main.py --port 5670 --device Wi-Fi --verbose",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "798ce9db-42f9-4422-850e-ff2a205eeb51"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:/Users/Pierre/Documents/Ingescape/sandbox\\Graphique/src/main.py --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "73bee552-19bc-4fc3-baf9-216cb459b4b8"
+                            },
+                            {
+                                "commandLine": "C:\\Users\\Pierre\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:\\Users\\Pierre\\Documents\\Ingescape\\sandbox\\Graphique/src/main.py --port 5670 --device Wi-Fi",
+                                "hostname": "LAPTOP-MJ7IL4MH",
+                                "ip": "192.168.1.11",
+                                "isAttachedToCircle": false,
+                                "mac": "14:85:7F:19:4A:06",
+                                "uuid": "acebebc2-f6d9-4031-b74c-110f4c008939"
+                            }
+                        ]
+                    },
+                    "class": "83e9e3ca-7f15-4f6e-9cf3-e21376b811e6",
+                    "comment": "",
+                    "height": 100,
+                    "name": "Graphique",
+                    "simulationTime": 5000,
+                    "uuid": "3044e16b-1819-402b-a7f8-148667036911",
+                    "width": 250,
+                    "x": -134.56242408915182,
+                    "y": 1417.2444171720897
+                }
+            ],
+            "links": {
+                "mappings": [
+                    {
+                        "from": "Trader",
+                        "fromInput": "prix_actuel",
+                        "to": "Banque",
+                        "toOutput": "prix_actuel"
+                    },
+                    {
+                        "from": "Trader1",
+                        "fromInput": "prix_actuel",
+                        "to": "Banque",
+                        "toOutput": "prix_actuel"
+                    },
+                    {
+                        "from": "Trader_2",
+                        "fromInput": "prix_actuel",
+                        "to": "Banque",
+                        "toOutput": "prix_actuel"
+                    },
+                    {
+                        "from": "Trader_Manuel",
+                        "fromInput": "prix_actuel",
+                        "to": "Banque",
+                        "toOutput": "prix_actuel"
+                    },
+                    {
+                        "from": "Graphique",
+                        "fromInput": "prix_actuel",
+                        "to": "Banque",
+                        "toOutput": "prix_actuel"
+                    },
+                    {
+                        "from": "Trader_3",
+                        "fromInput": "prix_actuel",
+                        "to": "Banque",
+                        "toOutput": "prix_actuel"
+                    },
+                    {
+                        "from": "Trader_4",
+                        "fromInput": "prix_actuel",
+                        "to": "Banque",
+                        "toOutput": "prix_actuel"
+                    },
+                    {
+                        "from": "Trader_5",
+                        "fromInput": "prix_actuel",
+                        "to": "Banque",
+                        "toOutput": "prix_actuel"
+                    }
+                ],
+                "others": [
+                    {
+                        "destination": "2dff85f4-8967-415a-bc05-d4e6745eea22",
+                        "destinationIO": {
+                            "name": "wildcard",
+                            "type": "INPUT"
+                        },
+                        "source": "02ea1272-82e2-42e2-a6df-6a4b339c229b",
+                        "sourceIO": {
+                            "name": "prix_actuel",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "466b9e8e-547d-481c-b8a2-a905bf355058",
+                        "destinationIO": {
+                            "name": "backgroundColor",
+                            "type": "INPUT"
+                        },
+                        "source": "ce93e48c-7d6b-43a3-b90e-eb962c79dc59",
+                        "sourceIO": {
+                            "name": "value",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "466b9e8e-547d-481c-b8a2-a905bf355058",
+                        "destinationIO": {
+                            "name": "title",
+                            "type": "INPUT"
+                        },
+                        "source": "c1d7d541-7524-428f-b09d-ab7b02f85da2",
+                        "sourceIO": {
+                            "name": "value",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "466b9e8e-547d-481c-b8a2-a905bf355058",
+                        "destinationIO": {
+                            "name": "clear",
+                            "type": "INPUT"
+                        },
+                        "source": "2215bd1f-f054-4268-8f5e-5bf94c202833",
+                        "sourceIO": {
+                            "name": "value",
+                            "type": "OUTPUT"
+                        }
+                    }
+                ]
+            },
+            "name": "Main view"
+        }
+    ]
+}
