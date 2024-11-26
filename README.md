@@ -33,7 +33,7 @@ UPSSI-Trading est une application de trading simulée utilisant une interface gr
 - **lanceur_trading.py** : Script pour démarrer tous les services nécessaires (Whiteboard, Banque, Graphique, etc.).
 - **Graphique/** : Contient le code pour générer et mettre à jour les graphiques du trading.
 - **Banque/** : Contient la logique de gestion des comptes et des ordres des traders.
-- **Trader_Manuel/**, **Trader_1/**, **Trader_2/** : Différents agents de trading avec leurs interfaces respectives.
+- **Trader_Manuel/**, **Trader_1/**, **Trader_2/**, **Trader_3/**, **Trader_4/**,**Trader_5/** : Différents agents de trading avec leurs interfaces respectives.
 
 ## Licence
 [MIT License](LICENSE)
