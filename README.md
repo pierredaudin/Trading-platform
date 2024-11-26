@@ -28,8 +28,9 @@ UPSSI-Trading est une application de trading simulée utilisant une interface gr
 
 ## Utilisation
 - Pour démarrer l'application, lancez le script `lanceur_trading.py`.
-- Suivez les instructions pour choisir les exécutables et les fichiers requis (Whiteboard, scripts Python, etc.).
+- Suivez les instructions pour choisir les exécutables et les fichiers requis (executable ingescape).
 - L'interface de trading s'affichera, et vous pourrez interagir avec les différentes fonctionnalités.
+- Mettez le Whiteboard en plein écran et ouvrez le fenêtre du trader manuel
 
 ## Structure du Projet
 - **lanceur_trading.py** : Script pour démarrer tous les services nécessaires (Whiteboard, Banque, Graphique, etc.).
