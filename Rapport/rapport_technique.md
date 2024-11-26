@@ -22,7 +22,7 @@ L'agent **Banque** est responsable de la gestion financière de l'application. I
 ### Services Implémentés
 - **creation_compte** : Crée un compte pour un trader qui n'en possède pas encore.
 - **get_info_compte** : Fournit des informations sur le solde et les jetons d'un compte existant.
-- **ordre** : Traite les ordres de trading (achat ou vente de jetons).
+- **ordre** : Traite les ordres de trading (achat ou vente de jetons) -> Une sécurité a été ajouté pour ne passer un ordre que si le compte existe dans la banque. S'il n'existe pas alors on en créé un pour l'agent concerné.
 
 ### Fonctionnalités Clés
 - **Gestion des Comptes** : Lorsqu'un trader fait une demande d'achat ou de vente, l'agent Banque crée un compte pour ce trader s'il n'en possède pas déjà.
